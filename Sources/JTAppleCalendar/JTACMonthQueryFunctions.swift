@@ -269,6 +269,7 @@ extension JTACMonthView {
                 let periodApart = calendar.dateComponents([.month], from: startOfMonthCache, to: date)
                 let day = calendar.dateComponents([.day], from: date).day!
                 guard let monthSectionIndex = periodApart.month else { continue }
+                guard monthInfo.indices.contains(monthSectionIndex) else { continue }
                 let currentMonthInfo = monthInfo[monthSectionIndex]
                 if let indexPath = currentMonthInfo.indexPath(forDay: day) {
                     returnPaths.append(indexPath)
